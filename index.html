@@ -19,9 +19,6 @@
         .card:hover {
             transform: scale(1.05);
         }
-        #toggleContent {
-            display: none;
-        }
     </style>
 </head>
 
@@ -127,18 +124,17 @@
     <script>
         document.getElementById("toggleButton").addEventListener("click", function () {
             let content = document.getElementById("toggleContent");
-
-            if (content.style.display === "none" || content.style.display === "") {
-                let password = prompt("암호를 입력하세요:");
-                let correctPassword = "539"; // 설정한 암호
-                
-                if (password === correctPassword) {
+            let password = prompt("암호를 입력하세요:");
+            let correctPassword = "539"; // 설정할 암호
+            
+            if (password === correctPassword) {
+                if (content.style.display === "none") {
                     content.style.display = "block";
                 } else {
-                    alert("암호가 틀렸습니다!");
+                    content.style.display = "none";
                 }
             } else {
-                content.style.display = "none";
+                alert("암호가 틀렸습니다!");
             }
         });
     </script>
