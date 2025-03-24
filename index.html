@@ -128,17 +128,18 @@
     <script>
         document.getElementById("toggleButton").addEventListener("click", function () {
             let content = document.getElementById("toggleContent");
-            let password = prompt("암호를 입력하세요:");
-            let correctPassword = "539"; // 설정할 암호
-            
-            if (password === correctPassword) {
-                if (content.style.display === "none") {
+
+            if (content.style.display === "none" || content.style.display === "") {
+                let password = prompt("암호를 입력하세요:");
+                let correctPassword = "한양의 미래는 너"; // 설정할 암호
+                
+                if (password === correctPassword) {
                     content.style.display = "block";
                 } else {
-                    content.style.display = "none";
+                    alert("암호가 틀렸습니다!");
                 }
             } else {
-                alert("암호가 틀렸습니다!");
+                content.style.display = "none"; // 닫을 때는 암호 없이 바로 닫힘
             }
         });
     </script>
